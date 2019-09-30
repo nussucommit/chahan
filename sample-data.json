@@ -1,0 +1,30 @@
+[
+    {
+        "name": "g-recaptcha-response",
+        "value": ""
+    },
+    {
+        "name": "id:name",
+        "value": "John Doe"
+    },
+    {
+        "name": "id:email",
+        "value": "test@example.com"
+    },
+    {
+        "name": "category",
+        "value": "Electronics"
+    },
+    {
+        "name": "items",
+        "value": "Portable Projector"
+    },
+    {
+        "name": "ItemQuantity",
+        "value": "1"
+    },
+    {
+        "name": "PurposeofRental",
+        "value": "Test\r\nMultiline"
+    }
+]
