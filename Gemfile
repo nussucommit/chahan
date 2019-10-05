@@ -33,6 +33,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Rspec testing framework
   gem 'rspec-rails'
+  # Shoulda Matchers: matchers for testing -- minimal Rails 6 support
+  gem 'shoulda-matchers'
 end
 
 group :development do
