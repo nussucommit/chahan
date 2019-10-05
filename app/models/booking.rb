@@ -14,4 +14,9 @@
 #
 
 class Booking < ApplicationRecord
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :category, presence: true
+  validates :items, presence: true
+  validates :quantity, numericality:{greater_than: 0}
 end
