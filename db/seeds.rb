@@ -10,7 +10,7 @@
 Booking.create(
   name: 'John Smith',
   email: 'test@abcd.com',
-  category: 'Electronics',
+  category: 'electronics',
   items: 'Portable Projector',
   quantity: '1',
   purpose: 'Camp')
@@ -18,7 +18,7 @@ Booking.create(
 Booking.create(
   name: 'Bob',
   email: 'test@xyz.com',
-  category: 'Electronics',
+  category: 'electronics',
   items: 'VGA Adapter',
   quantity: '1',
   purpose: 'Presentation')

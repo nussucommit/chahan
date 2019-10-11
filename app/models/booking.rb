@@ -14,6 +14,10 @@
 #
 
 class Booking < ApplicationRecord
+  # category mapping
+  CATEGORIES = %i[electronics].freeze
+  enum category: CATEGORIES
+
   validates :name, presence: true
   validates :email, presence: true
   validates :category, presence: true
