@@ -1,4 +1,23 @@
 // Place all the styles related to the Bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+th {
+    background-color: $yellow;
+}
 
+table {
+  border: .5px solid $dim-grey;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px 1px $grey;
+  margin-bottom: 5%;
+  margin-top: 2%;
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: $cream;
+}
+
+tr:nth-child(odd) {
+  background-color: $dark-cream;
+}
