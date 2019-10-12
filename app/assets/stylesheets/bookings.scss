@@ -1,11 +1,7 @@
 // Place all the styles related to the Bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$dim-grey: #696969;
-$grey: #808080;
-$yellow: #feb600;
-$cream: #fff8dc;
-$dark-cream: #f6e1af;
+@import 'constants';
 th {
     background-color: $yellow;
 }
