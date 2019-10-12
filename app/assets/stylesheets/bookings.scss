@@ -6,6 +6,15 @@ th {
     background-color: $yellow;
 }
 
+table {
+  border: .5px solid $dim-grey;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px 1px $grey;
+  margin-bottom: 5%;
+  margin-top: 2%;
+  width: 100%;
+}
+
 tr:nth-child(even) {
   background-color: $cream;
 }
