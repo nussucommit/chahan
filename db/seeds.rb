@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Booking dummies
+Booking.create(
+  name: 'John Smith',
+  email: 'test@abcd.com',
+  category: 'electronics',
+  items: 'Portable Projector',
+  quantity: '1',
+  purpose: 'Camp')
+
+Booking.create(
+  name: 'Bob',
+  email: 'test@xyz.com',
+  category: 'electronics',
+  items: 'VGA Adapter',
+  quantity: '1',
+  purpose: 'Presentation')
