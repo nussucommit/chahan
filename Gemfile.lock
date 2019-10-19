@@ -42,9 +42,17 @@ GEM
       globalid (>= 0.3.6)
     activemodel (6.0.0)
       activesupport (= 6.0.0)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (6.0.0)
       activemodel (= 6.0.0)
       activesupport (= 6.0.0)
+    activeresource (5.1.0)
+      activemodel (>= 5.0, < 7)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (>= 5.0, < 7)
     activestorage (6.0.0)
       actionpack (= 6.0.0)
       activejob (= 6.0.0)
@@ -228,6 +236,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activeresource
   annotate
   bootsnap (>= 1.4.2)
   byebug
