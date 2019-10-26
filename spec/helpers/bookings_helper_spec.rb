@@ -13,7 +13,7 @@ RSpec.describe BookingsHelper, type: :helper do
                               email: 'test@example.com',
                               category: 'electronics',
                               items: 'Portable Projector',
-                              #purpose: 'Test\r\nMultiline',
+                              purpose: "Test\r\nMultiline",
                               quantity: 1)).to be true
     end
   end
