@@ -5,7 +5,7 @@ RSpec.describe BookingsHelper, type: :helper do
   describe '#get_request' do
     it 'creates booking' do
       file = File.read('sample-data.json')
-      stub_request(:get, 'http://www.killmepls.com').
+      stub_request(:get, 'http://www.example.com').
         to_return(body: file)
 
       get_request

@@ -3,7 +3,7 @@ require 'net/http'
 
 module BookingsHelper
   def get_request
-    uri = URI("http://www.killmepls.com")
+    uri = URI("http://www.example.com")
     res =  Net::HTTP.get(uri)
     request = JSON.parse(res)
     request = to_hash(request)
