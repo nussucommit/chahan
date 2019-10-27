@@ -7,4 +7,15 @@ RSpec.describe BookingsController, type: :controller do
       expect(response).to render_template("index")
     end
   end
+
+  describe 'POST bookings#create' do
+    it 'creates new booking' do
+      post :create, params: { booking: 
+                            { name: "Test",
+                              email: "example@abc.com",
+                              category: "electronics",
+                              items: "camera",
+                              quantity: 10 }}
+    end 
+  end
 end
