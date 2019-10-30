@@ -18,6 +18,26 @@ class BookingsController < ApplicationController
 
 private
   def booking_params
-    params.require(:booking).permit(:name, :email, :category, :items, :quantity, :purpose)
+    to_hash(params[:_json])
+  end
+
+  def to_hash(hashes)
+    result = Hash.new
+    
+    hashes.each do |d|
+      unless d['name'] == 'g-recaptcha-response'
+        key = d['name'].sub('id:', '')
+                       .sub('ItemQuantity', 'quantity')
+                       .sub('PurposeofRental', 'purpose')
+        value = d['value'] 
+        if key == 'category'
+          value = value.downcase
+        end
+
+        result[key] = value
+      end
+    end
+
+    return result
   end
 end
