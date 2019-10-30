@@ -18,7 +18,9 @@ class BookingsController < ApplicationController
 
 private
   def booking_params
-    to_hash(params[:_json])
+    if params.permit(_json: [:name, :value], booking: {})
+      to_hash(params[:_json])
+    end
   end
 
   def to_hash(hashes)
