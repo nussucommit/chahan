@@ -12,6 +12,10 @@ table {
   margin-bottom: 5%;
   margin-top: 2%;
   width: 100%;
+
+  p {
+    margin: initial;
+  }
 }
 
 tr:nth-child(even) {
