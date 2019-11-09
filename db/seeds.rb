@@ -22,3 +22,9 @@ Booking.create(
   items: 'VGA Adapter',
   quantity: '1',
   purpose: 'Presentation')
+
+User.create(
+  username: 'admin',
+  password: '123456',
+  email: 'test@example.com'
+)
