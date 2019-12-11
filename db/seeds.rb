@@ -13,7 +13,8 @@ Booking.create(
   category: 'electronics',
   items: 'Portable Projector',
   quantity: '1',
-  purpose: 'Camp')
+  purpose: 'Camp',
+  status: 'pending')
 
 Booking.create(
   name: 'Bob',
@@ -21,4 +22,5 @@ Booking.create(
   category: 'electronics',
   items: 'VGA Adapter',
   quantity: '1',
-  purpose: 'Presentation')
+  purpose: 'Presentation',
+  status: 'approved')
