@@ -18,6 +18,9 @@ class Booking < ApplicationRecord
   CATEGORIES = %i[electronics].freeze
   enum category: CATEGORIES
 
+  STATUSES = %i[pending approved rejected].freeze
+  enum status: STATUSES
+
   validates :name, presence: true
   validates :email, presence: true
   validates :category, presence: true
