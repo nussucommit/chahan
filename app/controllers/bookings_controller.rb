@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
 private
   def booking_params
     if params.permit(_json: [:name, :value], booking: {})
-      to_hash(params[:_json])
+      init_status(to_hash(params[:_json]))
     end
   end
 
@@ -41,5 +41,11 @@ private
     end
 
     return result
+  end
+
+  def init_status(params)
+    params[:status] = 'pending'
+
+    params
   end
 end
