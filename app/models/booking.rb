@@ -3,12 +3,13 @@
 # Table name: bookings
 #
 #  id         :integer          not null, primary key
-#  name       :string
-#  email      :string
 #  category   :integer
+#  email      :string
 #  items      :string
-#  quantity   :integer
+#  name       :string
 #  purpose    :text
+#  quantity   :integer
+#  status     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
