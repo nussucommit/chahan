@@ -41,6 +41,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   # Shoulda Matchers: matchers for testing -- minimal Rails 6 support
   gem 'shoulda-matchers'
+  # Factory bot: factories for testing
+  gem 'factory_bot_rails'
 end
 
 group :development do
