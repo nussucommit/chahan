@@ -21,7 +21,7 @@
             <td class="category"><%= b.category.capitalize %></td>
             <td class="items"><%= b.items %></td>
             <td class="quantity"><%= b.quantity %></td>
-            <td class="purpose"><%= b.purpose %></td>
+            <td class="purpose"><%= simple_format b.purpose %></td>
           </tr>
         <% end %>
       </table>

@@ -7,4 +7,26 @@ RSpec.describe BookingsController, type: :controller do
       expect(response).to render_template("index")
     end
   end
+
+  describe 'POST bookings#create' do
+    it 'creates new booking' do
+      post :create, params: { _json: [
+                                        {name: 'id:name', value: 'Test'},
+                                        {name: 'id:email', value: 'example@abc.com'},
+                                        {name: 'category', value: 'electronics'},
+                                        {name: 'items', value: 'camera'},
+                                        {name: 'ItemQuantity', value: '10'},
+                                        {name: 'PurposeofRental', value: "Test\r\nMultiline"}
+                                     ],
+                              booking: {} }
+
+      expect(Booking.exists?(name: 'Test', 
+                             email: 'example@abc.com',
+                             category: 'electronics',
+                             items: 'camera',
+                             quantity: 10,
+                             purpose: "Test\r\nMultiline")).to be true
+
+    end 
+  end
 end
