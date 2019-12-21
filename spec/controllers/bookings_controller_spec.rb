@@ -37,6 +37,7 @@ RSpec.describe BookingsController, type: :controller do
 
   describe 'PATCH bookings#update' do
     before do
+      sign_in create(:user)
       @booking = create :booking
     end
 
