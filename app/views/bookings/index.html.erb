@@ -13,6 +13,8 @@
           <th class="items">Items</th>
           <th class="quantity">Quantity</th>
           <th class="purpose">Purpose</th>
+          <th class="status">Status</th>
+          <th class="edit">Edit</th>
         </tr>
         <% @bookings.each do |b| %>
           <tr>
@@ -22,6 +24,28 @@
             <td class="items"><%= b.items %></td>
             <td class="quantity"><%= b.quantity %></td>
             <td class="purpose"><%= simple_format b.purpose %></td>
+            <td class="status"><%= b.status.capitalize %></td>
+            <% if b.status == "approved" %>
+              <td class="edit"><%= form_tag(booking_path(b.id), method: "patch") do %>
+              <%= button_tag("Reject", name: 'status', value: :rejected,
+                type: 'submit', class: "btn booking-btn btn-danger")%>
+              <% end %> </td>  
+            <% elsif b.status == "rejected" %>
+              <td class="edit"><%= form_tag(booking_path(b.id), method: "patch") do %>
+              <%= button_tag("Approve", name: 'status', value: :approved,
+                  type: 'submit', class: "btn booking-btn btn-success")%>
+              <% end %> </td> 
+            <% else %>
+              <td class="edit"><%= form_tag(booking_path(b.id), method: "patch") do %>
+              <%= button_tag("Approve", name: 'status', value: :approved,
+                  type: 'submit', class: "btn booking-btn btn-success")%>
+              <% end %>
+              <p></p>
+              <%= form_tag(booking_path(b.id), method: "patch") do %>
+              <%= button_tag("Reject", name: 'status', value: :rejected,
+                  type: 'submit', class: "btn booking-btn btn-danger")%>
+              <% end %></td> 
+            <% end %>
           </tr>
         <% end %>
       </table>

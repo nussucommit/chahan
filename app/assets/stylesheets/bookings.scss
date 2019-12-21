@@ -25,3 +25,7 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background-color: $dark-cream;
 }
+
+td.edit * {
+  margin: 2px;
+}

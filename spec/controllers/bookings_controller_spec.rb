@@ -34,4 +34,19 @@ RSpec.describe BookingsController, type: :controller do
 
     end 
   end
+
+  describe 'PATCH bookings#update' do
+    before do
+      sign_in create(:user)
+      @booking = create :booking
+    end
+
+    it 'changes booking status' do
+      expect do
+        patch :update, params: { id: @booking.id, status: 'approved' }
+      end.to change { Booking.find(@booking.id).status }
+        .to('approved')
+      should redirect_to bookings_path
+    end
+  end
 end

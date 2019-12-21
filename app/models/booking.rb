@@ -3,12 +3,13 @@
 # Table name: bookings
 #
 #  id         :integer          not null, primary key
-#  name       :string
-#  email      :string
 #  category   :integer
+#  email      :string
 #  items      :string
-#  quantity   :integer
+#  name       :string
 #  purpose    :text
+#  quantity   :integer
+#  status     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -18,9 +19,13 @@ class Booking < ApplicationRecord
   CATEGORIES = %i[electronics].freeze
   enum category: CATEGORIES
 
+  STATUSES = %i[pending approved rejected].freeze
+  enum status: STATUSES
+
   validates :name, presence: true
   validates :email, presence: true
   validates :category, presence: true
   validates :items, presence: true
+  validates :status, presence: true
   validates :quantity, numericality:{greater_than: 0}
 end
