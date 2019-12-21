@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe BookingsController, type: :controller do
   describe 'GET bookings#index' do
+    before do
+      sign_in create(:user)
+    end
+
     it 'loads index' do
       get :index
       expect(response).to render_template("index")
@@ -9,6 +13,7 @@ RSpec.describe BookingsController, type: :controller do
   end
 
   describe 'POST bookings#create' do
+    # No signing in because we should be able to send POST request without authentication
     it 'creates new booking' do
       post :create, params: { _json: [
                                         {name: 'id:name', value: 'Test'},

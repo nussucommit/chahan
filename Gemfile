@@ -19,6 +19,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Bootstrap
 gem 'bootstrap'
+# Devise Authentication
+gem 'devise'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -41,6 +43,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   # Shoulda Matchers: matchers for testing -- minimal Rails 6 support
   gem 'shoulda-matchers'
+  # Factory bot: factories for testing
+  gem 'factory_bot_rails'
 end
 
 group :development do

@@ -24,3 +24,9 @@ Booking.create(
   quantity: '1',
   purpose: 'Presentation',
   status: 'approved')
+
+User.create(
+  username: 'admin',
+  password: '123456',
+  email: 'test@example.com'
+)
