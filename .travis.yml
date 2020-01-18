@@ -1,5 +1,8 @@
 language: ruby
+cache: bundler
 rvm: 2.6.3
+bundler_args: "--without production development"
+services: postgresql
 
 before_script:
   - psql -c 'create database chahan_test;' -U postgres
