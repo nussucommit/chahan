@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap'
 # Devise Authentication
 gem 'devise'
+# Allow CORS
+gem 'rack-cors'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
