@@ -31,19 +31,19 @@ class BookingsController < ApplicationController
 
 private
   def booking_params
-    if params.permit(_json: [:name, :value], booking: {})
-      init_status(to_hash(params[:_json]))
-    end
+    to_hash('[' + params.select{|k, v| v == nil}.keys[0] + ']')
   end
 
   def status_param
     params.permit(:status)
   end
 
-  def to_hash(hashes)
+  def to_hash(param)
     result = Hash.new
+    hashes = JSON.parse(param)
     
     hashes.each do |d|
+      
       unless d['name'] == 'g-recaptcha-response'
         key = d['name'].sub('id:', '')
                        .sub('ItemQuantity', 'quantity')
