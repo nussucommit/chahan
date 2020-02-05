@@ -79,6 +79,6 @@ private
 
   def denilize(h, nil_replacement)
     h.each_with_object({}) { |(k,v),g|
-      g[k] = (Hash === v) ?  denilize(v) : v.empty? ? nil_replacement : v }
+      g[k] = (Hash === v) ?  denilize(v) : v.blank? ? nil_replacement : v }
   end
 end
