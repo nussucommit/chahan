@@ -13,6 +13,8 @@
           <th class="items">Items</th>
           <th class="quantity">Quantity</th>
           <th class="purpose">Purpose</th>
+          <th class="created-at">Requested At</th>
+          <th class="updated-at">Updated At</th>
           <th class="status">Status</th>
           <th class="edit">Edit</th>
         </tr>
@@ -24,6 +26,8 @@
             <td class="items"><%= b.items %></td>
             <td class="quantity"><%= b.quantity %></td>
             <td class="purpose"><%= simple_format b.purpose %></td>
+            <td class="created-at"><%= b.created_at.strftime("%d %b %Y") %></td>
+            <td class="updated-at"><%= b.updated_at.strftime("%d %b %Y") %></td>
             <td class="status"><%= b.status.capitalize %></td>
             <% if b.status == "approved" %>
               <td class="edit"><%= form_tag(booking_path(b.id), method: "patch") do %>
