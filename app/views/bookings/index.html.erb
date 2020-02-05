@@ -18,7 +18,7 @@
           <th class="status">Status</th>
           <th class="edit">Edit</th>
         </tr>
-        <% @bookings.each do |b| %>
+        <% @bookings.sort_by(&:created_at).reverse.each do |b| %>
           <tr>
             <td class="name"><%= b.name %></td>
             <td class="email"><%= b.email %></td>
