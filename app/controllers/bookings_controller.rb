@@ -31,19 +31,19 @@ class BookingsController < ApplicationController
 
 private
   def booking_params
-    if params.permit(_json: [:name, :value], booking: {})
-      init_status(to_hash(params[:_json]))
-    end
+    to_hash('[' + get_param_values + ']')
   end
 
   def status_param
     params.permit(:status)
   end
 
-  def to_hash(hashes)
+  def to_hash(param)
     result = Hash.new
+    hashes = JSON.parse(param)
     
     hashes.each do |d|
+      
       unless d['name'] == 'g-recaptcha-response'
         key = d['name'].sub('id:', '')
                        .sub('ItemQuantity', 'quantity')
@@ -57,12 +57,28 @@ private
       end
     end
 
-    return result
+    return init_status result
   end
 
   def init_status(params)
     params[:status] = 'pending'
 
     params
+  end
+
+  def get_param_values()
+    hash_to_be_filtered = params.to_unsafe_h
+    puts hash_to_be_filtered
+    denilized_hash = denilize(hash_to_be_filtered, 'values')
+    reversed_hash = denilized_hash.invert
+    puts reversed_hash
+    params_to_be_filtered = ActionController::Parameters.new(reversed_hash)
+
+    filtered_params = params_to_be_filtered.require(:values)
+  end
+
+  def denilize(h, nil_replacement)
+    h.each_with_object({}) { |(k,v),g|
+      g[k] = (Hash === v) ?  denilize(v) : v.empty? ? nil_replacement : v }
   end
 end
