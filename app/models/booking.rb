@@ -16,8 +16,8 @@
 
 class Booking < ApplicationRecord
   # category mapping
-  CATEGORIES = %i[electronics].freeze
-  enum category: CATEGORIES
+  # CATEGORIES = %i[electronics].freeze
+  # enum category: CATEGORIES
 
   STATUSES = %i[pending approved rejected].freeze
   enum status: STATUSES
