@@ -68,10 +68,8 @@ private
 
   def get_param_values()
     hash_to_be_filtered = params.to_unsafe_h
-    puts hash_to_be_filtered
     denilized_hash = denilize(hash_to_be_filtered, 'values')
     reversed_hash = denilized_hash.invert
-    puts reversed_hash
     params_to_be_filtered = ActionController::Parameters.new(reversed_hash)
 
     filtered_params = params_to_be_filtered.require(:values)
@@ -79,6 +77,6 @@ private
 
   def denilize(h, nil_replacement)
     h.each_with_object({}) { |(k,v),g|
-      g[k] = (Hash === v) ?  denilize(v) : v.empty? ? nil_replacement : v }
+      g[k] = (Hash === v) ?  denilize(v) : v.blank? ? nil_replacement : v }
   end
 end
