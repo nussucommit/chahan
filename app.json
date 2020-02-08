@@ -1,0 +1,14 @@
+{
+  "name": "NUSSU Logistics Website",
+  "description": "This is the NUSSU Logistics Website, codenamed Chahan",
+  "keywords": [
+    "logistics",
+    "nussu"
+  ],
+  "website": "http://logistics.nussucommit.com/",
+  "repository": "https://github.com/nussucommit/chahan",
+  "logo": "https://www.nussucommit.com/images/logo.png",
+  "scripts": {
+    "postdeploy": "rake db:migrate db:seed"
+  }
+}

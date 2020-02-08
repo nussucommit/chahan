@@ -29,15 +29,12 @@ RSpec.describe BookingsController, type: :controller do
   describe 'POST bookings#create' do
     # No signing in because we should be able to send POST request without authentication
     it 'creates new booking' do
-      post :create, params: { _json: [
-                                        {name: 'id:name', value: 'Test'},
-                                        {name: 'id:email', value: 'example@abc.com'},
-                                        {name: 'category', value: 'electronics'},
-                                        {name: 'items', value: 'camera'},
-                                        {name: 'ItemQuantity', value: '10'},
-                                        {name: 'PurposeofRental', value: "Test\r\nMultiline"}
-                                     ],
-                              booking: {} }
+      post :create, params: {"{\"name\":\"id:name\",\"value\":\"Test\"}," +  
+                             "{\"name\":\"id:email\",\"value\":\"example@abc.com\"}," +
+                             "{\"name\":\"category\",\"value\":\"Electronics\"}," + 
+                             "{\"name\":\"items\",\"value\":\"camera\"}," + 
+                             "{\"name\":\"ItemQuantity\",\"value\":\"10\"}," + 
+                             "{\"name\":\"PurposeofRental\",\"value\":\"Test\\r\\nMultiline\"}"=>nil}
 
       expect(Booking.exists?(name: 'Test', 
                              email: 'example@abc.com',
