@@ -1,14 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe BookingsController, type: :controller do
+
   describe 'GET bookings#index' do
-    before do
-      sign_in create(:user)
+    it 'redirects to login page if user not logged in' do
+      get :index
+      expect redirect_to new_user_session_path
     end
 
-    it 'loads index' do
+    before do
+      @user = create(:user)
+      @signed_in = sign_in (@user)
+    end
+
+    it 'loads index if user is logged in' do
       get :index
+      expect(@signed_in).to be_truthy
       expect(response).to render_template("index")
+    end
+
+    it 'redirects to login page if previously logged in user has logged out' do
+      sign_out (@user)
+      get :index
+      expect redirect_to new_user_session_path
     end
   end
 
@@ -44,6 +58,24 @@ RSpec.describe BookingsController, type: :controller do
       end.to change { Booking.find(@booking.id).status }
         .to('approved')
       should redirect_to bookings_path
+      expect(flash[:notice]).to eql('Updated booking status')
+    end
+
+    it 'does nothing if blank status passed for update' do
+      patch :update, params: { id: @booking.id, status: '' }
+      should redirect_to bookings_path
+      expect(flash[:alert]).to eql("Failed to update booking status")
+    end
+
+    it 'raises error if invalid status passed for update' do
+      expect do
+        patch :update, params: { id: @booking.id, status: 'huh' }
+      end.to raise_error(ArgumentError)
     end
   end
+
+  describe 'DELETE devise/sessions#destroy' do
+    pending "implement test for Logout button click, or remove this line #{__FILE__}" 
+  end
+
 end

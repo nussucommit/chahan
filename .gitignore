@@ -41,3 +41,6 @@ yarn-debug.log*
 
 # Ignore MacOS system files
 *.DS_Store
+
+# coverage
+coverage/*
