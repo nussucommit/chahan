@@ -8,9 +8,6 @@ class GenericMailer < ApplicationMailer
     @quantity = booking.quantity
     @purpose = booking.purpose
 
-    puts '======================='
-    puts 'rejected'
-
     mail(to: get_recipient(booking),
          subject: "Booking rejected",
          template_path: 'generic_mailer',
