@@ -21,13 +21,14 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking.update status_param
+      if @booking.status == 'rejected'
+        GenericMailer.with(booking: @booking).reject.deliver_now
+      elsif @booking.status == 'approved'
+        GenericMailer.with(booking: @booking).approve.deliver_now
+      end
+
       redirect_to bookings_path,
                   notice: "Updated booking status"
-      if @booking.status == 'rejected'
-        GenericMailer.reject(@booking)
-      elsif @booking.status == 'accepted'
-        GenericMailer.accept(@booking)
-      end
     else
       redirect_to bookings_path,
                   alert: "Failed to update booking status"
