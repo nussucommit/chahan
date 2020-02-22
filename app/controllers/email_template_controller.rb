@@ -1,0 +1,2 @@
+class EmailTemplateController < ApplicationController
+end
