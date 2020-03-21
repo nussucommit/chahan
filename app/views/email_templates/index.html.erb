@@ -12,12 +12,14 @@
       <table class="table template-table">
         <tr>
           <th class="name">Name of Template</th>
-          <th class="content">Content</th>
+          <th class="content">Content Preview</th>
+          <th class="details"></th>
         </tr>
         <% @templates.sort_by(&:created_at).reverse.each do |t| %>
           <tr>
             <td class="name"><%= t.name %></td>
             <td class="content"><%= truncate(t.content, length: 80) %></td>
+            <td class="details"><%= link_to 'Show more', email_template_path(t) %></td>
           </tr>
         <% end %>
       </table>

@@ -19,6 +19,10 @@ class EmailTemplatesController < ApplicationController
     end
   end
 
+  def show
+    @template = EmailTemplate.find params[:id]
+  end
+
   private
 
   def template_params
