@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     collection do
       get 'select', to: 'email_templates#select'
     end
+
+    member do
+      get 'adapt', to: 'email_templates#adapt'
+    end
   end
 
   root 'bookings#index'

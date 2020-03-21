@@ -1,0 +1,27 @@
+<div class="container-fluid no-padding">
+  <h1>Adapt Email Template</h1>
+</div>
+
+<div class="col-md-12 col-sm-12">
+  <%= form_tag do %>
+    <div class="table-responsive-lg adapt-email-template-table">
+      <table>
+        <tr>
+          <td class="td-container name"><b>To</b></td>
+          <td><%= text_field_tag(:address, @booking.email, class: "form-control") %></td>
+        </tr>
+
+        <tr>
+          <td class="td-container content"><b>Content</b></td>
+          <td>
+            <%= text_area_tag(:content, @template.content, size: "100x10", class: "form-control") %>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" class="submit-btn"><%= submit_tag("Submit", class: "btn btn-large btn-dark")%></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+</div>

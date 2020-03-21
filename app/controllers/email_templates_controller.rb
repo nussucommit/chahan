@@ -28,6 +28,11 @@ class EmailTemplatesController < ApplicationController
     @booking_id = params[:booking_id]
   end
 
+  def adapt
+    @template = EmailTemplate.find params[:id]
+    @booking = Booking.find params[:booking_id]
+  end
+
   private
 
   def template_params
