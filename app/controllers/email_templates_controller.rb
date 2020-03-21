@@ -11,10 +11,10 @@ class EmailTemplatesController < ApplicationController
     @template = EmailTemplate.new template_params
 
     if @template.save
-      redirect_to email_template_index_path,
+      redirect_to email_templates_path,
                   notice: 'Template succesfully saved!'  
     else
-      redirect_to email_template_index_path,
+      redirect_to email_templates_path,
                   alert: 'Could not save template!'
     end
   end
