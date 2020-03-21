@@ -1,6 +1,10 @@
-class EmailTemplateController < ApplicationController
+class EmailTemplatesController < ApplicationController
   def index
     @templates = EmailTemplate.all
+  end
+
+  def new
+    @template = EmailTemplate.new
   end
 
   def create
