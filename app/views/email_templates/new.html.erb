@@ -3,21 +3,21 @@
 </div>
 
 <div class="col-md-12 col-sm-12">
-  <ul class="btn-container">
-    <li><%= button_to("Back To Email Template List", email_templates_path, method: "get", class: "btn btn-large btn-light") %></li>
-  </ul>
+  <div class="btn-container">
+    <div><%= button_to("Back To Email Template List", email_templates_path, method: "get", class: "btn btn-large btn-light") %></div>
+  <div>
 
   <%= form_for @template do |t|%>
     <div class="table-responsive-lg new-email-template-table">
       <table>
         <tr>
-          <td class="container td-container name"><b>Name of Template</b></td>
+          <td class="td-container name"><b>Name of Template</b></td>
           <td><%= t.text_field(:name, class: "form-control") %></td>
         </tr>
 
         <tr>
 
-          <td class="container td-container content"><b>Content</b></td>
+          <td class="td-container content"><b>Content</b></td>
           <% content_place_holder = "Please type the email template here"%>
           <td>
             <%= t.text_area(:content, size: "100x10", placeholder: content_place_holder, class: "form-control") %>
