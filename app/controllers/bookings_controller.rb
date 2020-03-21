@@ -22,13 +22,13 @@ class BookingsController < ApplicationController
 
     if @booking.update status_param
       if @booking.status == 'rejected'
-        GenericMailer.with(booking: @booking).reject.deliver_now
-      elsif @booking.status == 'approved'
-        GenericMailer.with(booking: @booking).approve.deliver_now
-      end
+        redirect_to select_email_templates_path(booking_id: @booking.id),
+                    notice: "Succesfully rejected booking, please select email template"
 
-      redirect_to bookings_path,
-                  notice: "Updated booking status"
+      elsif @booking.status == 'approved'
+        redirect_to select_email_templates_path(booking_id: @booking.id),
+                    notice: "Succesfully approved booking, please select email template"
+      end
     else
       redirect_to bookings_path,
                   alert: "Failed to update booking status"

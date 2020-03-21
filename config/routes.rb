@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :bookings
 
-  resources :email_templates
+  resources :email_templates do
+    collection do
+      get 'select', to: 'email_templates#select'
+    end
+  end
 
   root 'bookings#index'
 end
