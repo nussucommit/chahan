@@ -2,38 +2,16 @@ class GenericMailer < ApplicationMailer
   default from: %("NUSSU Logistics" <test@nussulogistics.com>)
 
   def reject
-    booking = params[:booking]
-    @items = booking.items
-    @category = booking.category
-    @quantity = booking.quantity
-    @purpose = booking.purpose
-
-    mail(to: get_recipient(booking),
+    mail(to: params[:address],
          subject: "Booking rejected",
-         template_path: 'generic_mailer',
-         template_name: 'reject')
-    
-    
+         body: params[:content])
   end
 
   def approve
-    booking = params[:booking]
-    @items = booking.items
-    @category = booking.category
-    @quantity = booking.quantity
-    @purpose = booking.purpose
-
-    mail(to: get_recipient(booking),
+    mail(to: params[:address],
          subject: "Booking approved",
-         template_path: 'generic_mailer',
-         template_name: 'approve')
+         body: params[:content])
   end
 
   private
-
-  def get_recipient(booking)
-    %("#{booking.name}" <#{booking.email}>)
-  end
-
-
 end
