@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     member do
       get 'adapt', to: 'email_templates#adapt'
+      post 'adapt', to: 'email_templates#notify'
     end
   end
 
