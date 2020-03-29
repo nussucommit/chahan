@@ -4,6 +4,7 @@
 
 <div class="col-md-12 col-sm-12">
   <%= form_tag do %>
+    <%= hidden_field_tag "booking_id", @booking.id %>
     <div class="table-responsive-lg adapt-email-template-table">
       <table>
         <tr>
