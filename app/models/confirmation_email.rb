@@ -1,0 +1,2 @@
+class ConfirmationEmail < ApplicationRecord
+end
