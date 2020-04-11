@@ -1,4 +1,8 @@
 class ConfirmationEmailsController < ApplicationController
+  def index
+    @emails = ConfirmationEmail.all
+  end
+
   def new
     @email = ConfirmationEmail.new
   end
