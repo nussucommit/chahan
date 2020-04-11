@@ -15,7 +15,7 @@
           <tr>
             <td class="name"><%= t.name %></td>
             <td class="content"><%= truncate(t.content, length: 80) %></td>
-            <td class="details"><%= link_to 'Use this template', adapt_email_template_path(t, booking_id: @booking_id) %></td>
+            <td class="details"><%= link_to 'Use this template', new_confirmation_email_path(template_id: t.id, booking_id: @booking_id) %></td>
           </tr>
         <% end %>
       </table>

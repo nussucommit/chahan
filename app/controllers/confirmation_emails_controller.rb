@@ -5,6 +5,18 @@ class ConfirmationEmailsController < ApplicationController
 
   def new
     @email = ConfirmationEmail.new
+
+    booking = Booking.find params[:booking_id]
+    if booking.status == 'rejected'
+      @email.subject = "Booking rejected"
+    elsif booking.status == 'approved'
+      @email.subject = "Booking approved"
+    end
+
+    @email.recipient = booking.email
+
+    @template = EmailTemplate.find params[:template_id]
+    @email.content = @template.content
   end
 
   def create

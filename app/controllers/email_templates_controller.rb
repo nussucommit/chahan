@@ -28,20 +28,6 @@ class EmailTemplatesController < ApplicationController
     @booking_id = params[:booking_id]
   end
 
-  def adapt
-    @template = EmailTemplate.find params[:id]
-    @booking = Booking.find params[:booking_id]
-  end
-
-  def notify
-    @booking = Booking.find params[:booking_id]
-    if @booking.status == 'rejected'
-      GenericMailer.with(address: params[:address], content: params[:content]).reject.deliver_now
-    elsif @booking.status == 'approved'
-      GenericMailer.with(address: params[:address], content: params[:content]).approve.deliver_now
-    end
-  end
-
   private
 
   def template_params
