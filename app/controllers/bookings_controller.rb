@@ -21,8 +21,14 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking.update status_param
-      redirect_to bookings_path,
-                  notice: "Updated booking status"
+      if @booking.status == 'rejected'
+        redirect_to select_email_templates_path(booking_id: @booking.id),
+                    notice: "Succesfully rejected booking, please select email template"
+
+      elsif @booking.status == 'approved'
+        redirect_to select_email_templates_path(booking_id: @booking.id),
+                    notice: "Succesfully approved booking, please select email template"
+      end
     else
       redirect_to bookings_path,
                   alert: "Failed to update booking status"

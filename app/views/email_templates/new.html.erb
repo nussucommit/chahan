@@ -1,0 +1,33 @@
+<div class="container-fluid no-padding">
+  <h1>Create New Email Template</h1>
+</div>
+
+<div class="col-md-12 col-sm-12">
+  <div class="btn-container">
+    <div><%= button_to("Back To Email Template List", email_templates_path, method: "get", class: "btn btn-large btn-light") %></div>
+  <div>
+
+  <%= form_for @template do |t|%>
+    <div class="table-responsive-lg new-email-template-table">
+      <table>
+        <tr>
+          <td class="td-container name"><b>Name of Template</b></td>
+          <td><%= t.text_field(:name, class: "form-control") %></td>
+        </tr>
+
+        <tr>
+
+          <td class="td-container content"><b>Content</b></td>
+          <% content_place_holder = "Please type the email template here"%>
+          <td>
+            <%= t.text_area(:content, size: "100x10", placeholder: content_place_holder, class: "form-control") %>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" class="submit-btn"><%= t.submit("Submit", class: "btn btn-large btn-dark")%></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+<div class="col-md-12 col-sm-12">
+  <div class="btn-container">
+    <div><%= button_to("Back To Email Template List", email_templates_path, method: "get", class: "btn btn-large btn-light") %></div>
+  </div>
+
+  <div class="table-responsive-lg email-template-table">
+    <table>
+      <tr>
+        <td class="td-container name"><b>Name of Template</b></td>
+        <td class="td-container name"><%= @template.name %></td>
+      </tr>
+
+      <tr>
+        <td class="td-container content"><b>Content</b></td>
+        <td class="td-container content"><%= @template.content %></td>
+      </tr>
+    </table>
+  </div>
+</div>

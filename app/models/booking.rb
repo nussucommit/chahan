@@ -2,8 +2,8 @@
 #
 # Table name: bookings
 #
-#  id         :integer          not null, primary key
-#  category   :integer
+#  id         :bigint           not null, primary key
+#  category   :string
 #  email      :string
 #  items      :string
 #  name       :string
