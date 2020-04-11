@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :confirmation_emails
+
   root 'bookings#index'
 end

@@ -12,7 +12,7 @@
 
 class ConfirmationEmail < ApplicationRecord
   validates :recipient, format: { with: URI::MailTo::EMAIL_REGEXP,
-                              message: "is not a properly formatted email"}
+                                  message: "is not a properly formatted email"}
   validates :content, presence: true
   validates :subject, presence: true
 end
