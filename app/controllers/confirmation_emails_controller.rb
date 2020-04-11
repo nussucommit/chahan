@@ -10,6 +10,7 @@ class ConfirmationEmailsController < ApplicationController
   def create
     email = ConfirmationEmail.new email_params
     if email.save
+      GenericMailer.with(address: email.recipient, subject: email.subject, content: email.content).send_email.deliver_now
       redirect_to bookings_path, notice: "Sent email!"
     else
       @email = email

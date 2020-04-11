@@ -13,5 +13,11 @@ class GenericMailer < ApplicationMailer
          body: params[:content])
   end
 
+  def send_email
+    mail(to: params[:address],
+         subject: params[:subject],
+         body: params[:content])
+  end
+
   private
 end
