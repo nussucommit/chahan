@@ -1,0 +1,2 @@
+class ConfirmationEmailsController < ApplicationController
+end
