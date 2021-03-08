@@ -40,7 +40,7 @@ group :development, :test do
   # Factory bot: factories for testing
   gem 'factory_bot_rails'
   # Rspec testing framework -- experimental
-  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'rspec-rails', '~> 4.1.0'
   # For assert_template
   gem 'rails-controller-testing'
   # Shoulda Matchers: matchers for testing -- minimal Rails 6 support
